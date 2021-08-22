@@ -40,6 +40,10 @@ int Funciones:: sumaRecursiva(int n){
 
 int Funciones :: sumaDirecta(int n){
     int acum=0;
+    while (n<0){
+        cout<<"N es un numero negativo,necesitas un numero postivo : ";
+        cin >> n;
+    }
     acum=n*(n+1)/2;
     return acum;
 }
