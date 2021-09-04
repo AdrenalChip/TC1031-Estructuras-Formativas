@@ -42,9 +42,11 @@ int main(int argc, char* argv[]) {
 	string resp2 = "[5, 10, 68, 120, 333, 897]";
 
 	prueba = original1;
+	vector <int> hola;
 	sorts.ordenaSeleccion(prueba);
+	cout << arrayToString(prueba);
 
-
+/*
 	cout << "\n" <<"1.- esperada " << resp1 << "\n programa " << arrayToString(prueba) << "\n";
 	cout <<	(!resp1.compare(arrayToString(prueba)) ? "success\n" : "fail\n");
 
@@ -85,9 +87,10 @@ int main(int argc, char* argv[]) {
 	cout << "\n" <<"8.- esperada "  << -1  << " programa " << sorts.busqSecuencial(prueba, 100) << "\n";
 	cout <<	(-1 == sorts.busqSecuencial(prueba, 100) ? "success\n" : "fail\n");
 
-	cout << "\n" <<"9.- esperada "  << 4 << " programa " << sorts.busqBinaria(prueba, 333)  << "\n";
-	cout <<	(4 == sorts.busqBinaria(prueba, 333) ? "success\n" : "fail\n");
+	//cout << "\n" <<"9.- esperada "  << 4 << " programa " << sorts.busqBinaria(prueba, 333)  << "\n";
+	//cout <<	(4 == sorts.busqBinaria(prueba, 333) ? "success\n" : "fail\n");
 
-	cout << "\n" <<"10.- esperada "  << -1  << " programa " << sorts.busqBinaria(prueba, 197) << "\n";
-	cout <<	(-1 == sorts.busqBinaria(prueba, 197) ? "success\n" : "fail\n");
+	//cout << "\n" <<"10.- esperada "  << -1  << " programa " << sorts.busqBinaria(prueba, 197) << "\n";
+	//cout <<	(-1 == sorts.busqBinaria(prueba, 197) ? "success\n" : "fail\n");
+	*/
 }
