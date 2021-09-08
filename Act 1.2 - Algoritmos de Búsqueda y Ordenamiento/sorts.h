@@ -16,11 +16,11 @@ class Sorts{
      void mergeArray(vector<T>&,vector<T>&,int,int,int);
      void mergeSplit(vector <T> &,vector<T>&,int,int);
     public:
-     void ordenaSeleccion(const vector<T> &);
-     void ordenaBurbuja(const vector<T>&);
-     void ordenaMerge( const vector<T>&);
-     int busqSecuencial ( const vector<T>&,int);
-     int busqBinaria ( const vector <int>,int);
+     void ordenaSeleccion(vector<T> &);
+     void ordenaBurbuja( vector<T>&);
+     void ordenaMerge( vector<T>&);
+     int busqSecuencial (  vector<T>&,int);
+     int busqBinaria (  vector <int>,int);
 };
 
 template <class T>
@@ -31,8 +31,7 @@ void Sorts<T>::swap(vector<T> &v , int i, int j) {
 };
 
 template <class T>
-void Sorts<T>::ordenaSeleccion( const vector<T> &source){
-    vector<T> v(source);
+void Sorts<T>::ordenaSeleccion( vector<T> &v){
     int pos;
 	for (int i=v.size()-1;i>0;i--){
 		pos=0;
@@ -49,8 +48,7 @@ void Sorts<T>::ordenaSeleccion( const vector<T> &source){
 };
 
 template <class T>
-void Sorts<T>::ordenaBurbuja(const vector<T>&source){
-    vector<T> v(source);
+void Sorts<T>::ordenaBurbuja( vector<T>&v){
 	for (int i= v.size()-1; i> 0; i--){
 		for (int j=0; j<i; j++)
 		if (v[j]>v[j+1]){
@@ -109,16 +107,14 @@ void Sorts<T>::mergeSplit(vector<T> &A, vector<T> &B, int low, int high) {
 }
 
 template <class T>
-void Sorts<T>::ordenaMerge( const vector<T> &source) {
-	vector<T> v(source);
+void Sorts<T>::ordenaMerge( vector<T> &v) {
 	vector<T> tmp(v.size());
 	mergeSplit(v,tmp,0,v.size()-1);
 	
 }
 
 template <class T> 
-int Sorts<T>::busqSecuencial( const vector<T> &source,int val) {
-    vector<T> v(source);
+int Sorts<T>::busqSecuencial( vector<T> &v,int val) {
 	int mid;
 	int low = 0;
 	int high = v.size() - 1;
@@ -134,5 +130,6 @@ int Sorts<T>::busqSecuencial( const vector<T> &source,int val) {
 		}
 	}
 	return low;
+	
 }
 #endif
