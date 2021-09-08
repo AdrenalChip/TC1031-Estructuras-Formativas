@@ -83,11 +83,11 @@ void Sorts<T>::mergeArray(vector<T> &A,vector<T> &B,int low,int mid,int high) {
 		k++;
 	}
 	if (i>mid){
-		for (j<=high;j++;){
+		for (int i=mid; j<=high;j++){
 			B[k++]=A[j];
 		}
 	}else{
-		for (i<=mid;i++;){
+		for (int j=low; i<=mid;i++){
 			B[k++]=A[i];
 		}
 	}
@@ -128,8 +128,12 @@ int Sorts<T>::busqSecuencial( vector<T> &v,int val) {
 		} else if (val > v[mid]) {
 			low = mid + 1;
 		}
+
+	}
+	if (val != v[low]){
+		return low=-1;
 	}
 	return low;
-	
+
 }
 #endif
