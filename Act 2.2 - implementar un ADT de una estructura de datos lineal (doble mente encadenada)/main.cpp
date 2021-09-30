@@ -11,56 +11,13 @@
 #include <string>
 #include "dlist.h"
 
-/*
-
-	// Incluye estos funciones en tu dlist.h para poder imprimir tus respuestas
-	// en formatos compatibles con el main
-
-	template <class T>
-	std::string DList<T>::toStringForward() const {
-		std::stringstream aux;
-		DLink<T> *p;
-
-		p = head;
-		aux << "[";
-		while (p != 0) {
-			aux << p->value;
-			if (p->next != 0) {
-				aux << ", ";
-			}
-			p = p->next;
-		}
-		aux << "]";
-		return aux.str();
-	}
-
-	template <class T>
-	std::string DList<T>::toStringBackward() const {
-		std::stringstream aux;
-		DLink<T> *p;
-
-		p = tail;
-		aux << "[";
-		while (p != 0) {
-			aux << p->value;
-			if (p->previous != 0) {
-				aux << ", ";
-			}
-			p = p->previous;
-		}
-		aux << "]";
-		return aux.str();
-	}
-*/
-
-
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
 	DList<int> b1;
 	string front, back;
-
+	
 	b1.insertion(2);
 	front = "[2]";
 	back = "[2]";
@@ -68,7 +25,7 @@ int main(int argc, char* argv[]) {
 	cout <<	(!front.compare(b1.toStringForward()) ? "success\n" : "fail\n");
 	cout << "\n" <<"1.- esperada " << back << "\n programa " << b1.toStringBackward() << "\n";
 	cout <<	(!back.compare(b1.toStringBackward()) ? "success\n" : "fail\n");
-
+/*
  	b1.insertion(3);
 	b1.insertion(6);
 	b1.insertion(10);
@@ -120,5 +77,5 @@ int main(int argc, char* argv[]) {
 	cout <<	(!front.compare(b1.toStringForward()) ? "success\n" : "fail\n");
 	cout << "\n" <<"8.- esperada " << back << "\n programa " << b1.toStringBackward() << "\n";
 	cout <<	(!back.compare(b1.toStringBackward()) ? "success\n" : "fail\n");
-
+*/
 }
