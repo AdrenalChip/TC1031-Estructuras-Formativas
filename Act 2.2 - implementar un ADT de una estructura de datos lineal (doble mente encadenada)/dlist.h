@@ -27,6 +27,15 @@ private:
 };
 
 template <class T>
+DLink<T>::DLink(T val) : value(val), previous(0), next(0) {}
+
+template <class T>
+DLink<T>::DLink(T val, DLink *prev, DLink* nxt) : value(val), previous(prev), next(nxt) {}
+
+template <class T>
+DLink<T>::DLink(const DLink<T> &source) : value(source.value), previous(source.previous), next(source.next) {}
+
+template <class T>
 class DList {
 public:
 	DList(); //
@@ -44,13 +53,15 @@ public:
 	bool contains(T) const; //
 	bool empty() const; //
 	void clear(); //
-	string toStringBackward() const;
-    string toStringForward() const;
+	string toStringBackward() const; //
+    string toStringForward() const; //
 	bool set(int, T);
 	int  indexOf(T) const;
 	int  lastIndexOf(T) const;
 	T    remove(int);
-
+    int search (int);
+    void update (int,int);
+    int deleteAt(int pos);
 private:
 	DLink<T> *head;
 	DLink<T> *tail;
@@ -60,7 +71,7 @@ private:
 };
 
 template <class T>
-DList<T>::DList() {}
+DList<T>::DList(): head(0), tail(0), size(0) {}
 
 template <class T>
 DList<T>::~DList() {
@@ -69,7 +80,7 @@ DList<T>::~DList() {
 
 template <class T>
 bool DList<T>::empty() const {
-	return 0;
+	return (head == 0 && tail == 0);
 }
 
 template <class T>
@@ -212,4 +223,56 @@ string DList<T>::toStringBackward() const {
 		aux << "]";
 		return aux.str();
 	}
+
+template <class T>
+int DList<T>::search(int val){
+	DLink <T> *p;
+	p=head;
+	int pos=0;
+	int contador=0;
+	while (contador != size){
+		if (p->value==val){
+			pos=contador;
+		}else{
+			pos=-1;
+		}
+		contador=contador+1;
+		p=p->next;
+	}
+	return pos;
+}
+
+template <class T>
+void DList<T>::update(int pos,int val){
+	DLink <T> *p;
+	p=head;
+	int contador=0;
+	while (contador != size){
+		if (contador==pos){
+			p->value=val;
+		}
+		contador=contador+1;
+		p=p->next;
+	}
+}
+
+
+template <class T>
+int DList<T>::deleteAt(int pos){
+	DLink <T> *p;
+	T val;
+	p = head;
+	int contador=0;
+	while (contador !=size){
+		head = p->next;
+		if (contador==pos){
+			val=p->value;
+			delete p;
+			size--;
+		}
+		contador=contador+1;
+	}
+	return val;
+
+}
 #endif

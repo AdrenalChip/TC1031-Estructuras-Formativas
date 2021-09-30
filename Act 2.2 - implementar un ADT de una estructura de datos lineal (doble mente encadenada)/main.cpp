@@ -10,8 +10,6 @@
 #include <cstring>
 #include <string>
 #include "dlist.h"
-
-
 using namespace std;
 
 int main(int argc, char* argv[]) {
@@ -25,7 +23,7 @@ int main(int argc, char* argv[]) {
 	cout <<	(!front.compare(b1.toStringForward()) ? "success\n" : "fail\n");
 	cout << "\n" <<"1.- esperada " << back << "\n programa " << b1.toStringBackward() << "\n";
 	cout <<	(!back.compare(b1.toStringBackward()) ? "success\n" : "fail\n");
-/*
+
  	b1.insertion(3);
 	b1.insertion(6);
 	b1.insertion(10);
@@ -77,5 +75,5 @@ int main(int argc, char* argv[]) {
 	cout <<	(!front.compare(b1.toStringForward()) ? "success\n" : "fail\n");
 	cout << "\n" <<"8.- esperada " << back << "\n programa " << b1.toStringBackward() << "\n";
 	cout <<	(!back.compare(b1.toStringBackward()) ? "success\n" : "fail\n");
-*/
+
 }
