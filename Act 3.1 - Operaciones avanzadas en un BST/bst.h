@@ -163,12 +163,13 @@ void Node<T>::inorder(std::stringstream &aux) const {
 template <class T>
 void Node<T>::postorder(std::stringstream &aux) const {
 	if (left != 0) {
+        aux<< " ";
 		left->postorder(aux);
 	}
 	if (right != 0) {
+        aux<< " ";
 		right->postorder(aux);
 	}
-    aux<< " ";
     aux<< value;
 }
 
