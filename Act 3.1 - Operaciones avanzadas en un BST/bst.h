@@ -24,7 +24,7 @@ public:
 	void removeChilds();
 	void inorder(std::stringstream&) const;
 	void preorder(std::stringstream&) const;
-
+    void postorder(std::stringstream&) const;
 	friend class BST<T>;
 };
 
@@ -161,6 +161,18 @@ void Node<T>::inorder(std::stringstream &aux) const {
 }
 
 template <class T>
+void Node<T>::postorder(std::stringstream &aux) const {
+	if (left != 0) {
+		left->postorder(aux);
+	}
+	if (right != 0) {
+		right->postorder(aux);
+	}
+    aux<< " ";
+    aux<< value;
+}
+
+template <class T>
 void Node<T>::preorder(std::stringstream &aux) const {
 	aux << value;
 	if (left != 0) {
@@ -188,6 +200,7 @@ public:
 	std::string inorder() const;
 	std::string preorder() const;
     std::string visit() const;
+    std::string postorder() const;
 };
 
 template <class T>
@@ -273,13 +286,26 @@ std::string BST<T>::preorder() const {
 }
 
 template <class T>
+std::string BST<T>::postorder() const {
+	std::stringstream aux;
+
+	aux << "[";
+	if (!empty()) {
+		root->preorder(aux);
+	}
+	aux << "]";
+	return aux.str();
+}
+
+template <class T>
 std::string BST<T>::visit() const{
     std::stringstream aux;
     aux << preorder();
     aux << "\n";
     aux << inorder();
+    aux << "\n";
+    aux << postorder();
 
-    
     return aux.str();
 }
 
