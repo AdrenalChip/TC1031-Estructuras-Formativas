@@ -1,5 +1,5 @@
-#ifndef BST_H_
-#define BST_H_
+#ifndef bst_H
+#define bst_H
 
 #include <string>
 #include <sstream>
@@ -187,6 +187,7 @@ public:
 	void removeAll();
 	std::string inorder() const;
 	std::string preorder() const;
+    std::string visit() const;
 };
 
 template <class T>
@@ -200,6 +201,31 @@ BST<T>::~BST() {
 template <class T>
 bool BST<T>::empty() const {
 	return (root == 0);
+}
+template <class T>
+void BST<T>::remove(T val) {
+	if (root != 0) {
+		if (val == root->value) {
+			Node<T> *succ = root->succesor();
+			if (succ != 0) {
+				succ->left = root->left;
+				succ->right = root->right;
+			}
+			delete root;
+			root = succ;
+		} else {
+			root->remove(val);
+		}
+	}
+}
+
+template <class T>
+void BST<T>::removeAll() {
+	if (root != 0) {
+		root->removeChilds();
+	}
+	delete root;
+	root = 0;
 }
 
 template<class T>
@@ -246,4 +272,15 @@ std::string BST<T>::preorder() const {
 	return aux.str();
 }
 
-#endif /* BST_H_ */
+template <class T>
+std::string BST<T>::visit() const{
+    std::stringstream aux;
+    aux << preorder();
+    aux << "\n";
+    aux << inorder();
+
+    
+    return aux.str();
+}
+
+#endif
