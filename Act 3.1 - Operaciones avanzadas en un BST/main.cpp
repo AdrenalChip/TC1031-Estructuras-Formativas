@@ -45,11 +45,11 @@ int main(int argc, char* argv[]) {
 	ans = "[]";
 	cout << "\n" <<"6.- esperada " << ans << "\n programa " << bst.ancestors(1000) << "\n";
 	cout <<	(!ans.compare(bst.ancestors(1000)) ? "success\n" : "fail\n");
-/*
+
 	cout << "\n" <<"7.- esperada " << 4  << "\n programa " << bst.whatlevelamI(18) << "\n";
 	cout << (4 == bst.whatlevelamI(18) ? "success\n" : "fail\n");
 
 	cout << "\n" <<"8.- esperada " << 2  << "\n programa " << bst.whatlevelamI(8) << "\n";
 	cout <<	(2 == bst.whatlevelamI(8) ? "success\n" : "fail\n");
-*/
+
 }

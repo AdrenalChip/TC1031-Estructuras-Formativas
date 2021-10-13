@@ -31,6 +31,7 @@ public:
     bool ancestors(Node*,int,stringstream&);
 	void printLevelOrder(Node* ,stringstream &);
 	void printCurrentLevel(Node*, int,stringstream &);
+	int whatlevelamI(Node*,int,int);
 	friend class BST<T>;
 };
 
@@ -222,7 +223,7 @@ bool Node<T>::ancestors(Node* root,int target,stringstream &aux)
       return false;
   }
 }
-///
+
 template <class T>
 void Node<T>::levelorder(Node* root,int h,stringstream &aux)
 {
@@ -231,7 +232,6 @@ void Node<T>::levelorder(Node* root,int h,stringstream &aux)
         printCurrentLevel(root, i,aux);
 }
 
-/* Print nodes at a current level */
 template <class T>
 void Node<T>::printCurrentLevel(Node* root, int level,stringstream &aux)
 {
@@ -245,6 +245,24 @@ void Node<T>::printCurrentLevel(Node* root, int level,stringstream &aux)
     }
 }
 ///
+template <class T>
+int Node<T>::whatlevelamI(Node* root, int target,int leve){
+	if (root == NULL)
+        return 0;
+ 
+    if (root->value == target)
+        return leve;
+ 
+    int downlevel = whatlevelamI(root -> left,
+                                 target, leve + 1);
+    if (downlevel != 0)
+        return downlevel;
+ 
+    downlevel = whatlevelamI(root->right,
+                             target, leve + 1);
+    return downlevel;
+}
+
 template <class T>
 class BST {
 private:
@@ -265,6 +283,7 @@ public:
     std::string levelorder() const;
     int height();
     string ancestors (int);
+	int whatlevelamI(int);
 };
 
 template <class T>
@@ -413,4 +432,9 @@ std::string BST<T>::ancestors(int target){
 	}
 }
 
+template<class T>
+int BST<T>::whatlevelamI(int target){
+	int answer= root->whatlevelamI(root,target,1);
+	return answer;
+}
 #endif
