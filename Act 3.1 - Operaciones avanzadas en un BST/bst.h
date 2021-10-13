@@ -4,7 +4,8 @@
 #include <string>
 #include <sstream>
 #include <iostream>
-
+#include <bits/stdc++.h>
+using namespace std;
 template <class T> class BST;
 
 template <class T>
@@ -12,12 +13,12 @@ class Node {
 private:
 	T value;
 	Node *left, *right;
-
+    int level,balance;
 	Node<T>* succesor();
 
 public:
 	Node(T);
-	Node(T, Node<T>*, Node<T>*);
+	Node(T, Node<T>*, Node<T>*,int);
 	void add(T);
 	bool find(T);
 	void remove(T);
@@ -25,15 +26,18 @@ public:
 	void inorder(std::stringstream&) const;
 	void preorder(std::stringstream&) const;
     void postorder(std::stringstream&) const;
+    void levelorder(std::stringstream&) const;
+    int max_depth() ;
+    bool ancestors(Node*,int,stringstream&);
 	friend class BST<T>;
 };
 
 template <class T>
-Node<T>::Node(T val) : value(val), left(0), right(0) {}
+Node<T>::Node(T val) : value(val), left(0), right(0),level(0) {}
 
 template <class T>
-Node<T>::Node(T val, Node<T> *le, Node<T> *ri)
-	: value(val), left(le), right(ri) {}
+Node<T>::Node(T val, Node<T> *le, Node<T> *ri,int lev)
+	: value(val), left(le), right(ri), level(lev) {}
 
 template <class T>
 void Node<T>::add(T val) {
@@ -163,12 +167,12 @@ void Node<T>::inorder(std::stringstream &aux) const {
 template <class T>
 void Node<T>::postorder(std::stringstream &aux) const {
 	if (left != 0) {
-        aux<< " ";
 		left->postorder(aux);
+        aux<< " ";
 	}
 	if (right != 0) {
-        aux<< " ";
 		right->postorder(aux);
+        aux<< " ";
 	}
     aux<< value;
 }
@@ -185,6 +189,43 @@ void Node<T>::preorder(std::stringstream &aux) const {
 		right->preorder(aux);
 	}
 }
+
+template <class T>
+int Node<T>::max_depth() {
+	int le =1 , ri = 1;
+	if (left != 0)
+		le = left->max_depth() + 1;
+	if (right != 0)
+		ri = right->max_depth() + 1;
+	if(le > ri)
+		level = le;
+	else
+		level = ri;
+	balance = le - ri;
+	return level;
+}
+
+template <class T>
+bool Node<T>::ancestors(Node* root,int target,stringstream &aux)
+{if (root == NULL)
+     return false;
+  if (root->value == target)
+     return true;
+  
+  if (ancestors(root->left, target,aux) ||
+       ancestors(root->right, target,aux) ) {
+      aux<<root->value<<" ";
+      return true;
+  } else {
+      return false;
+  }
+}
+///
+template <class T>
+void Node<T>::levelorder(std::stringstream &aux) const {
+     
+}
+///
 template <class T>
 class BST {
 private:
@@ -202,6 +243,9 @@ public:
 	std::string preorder() const;
     std::string visit() const;
     std::string postorder() const;
+    std::string levelorder() const;
+    int height();
+    string ancestors (int);
 };
 
 template <class T>
@@ -292,12 +336,23 @@ std::string BST<T>::postorder() const {
 
 	aux << "[";
 	if (!empty()) {
-		root->preorder(aux);
+		root->postorder(aux);
 	}
 	aux << "]";
 	return aux.str();
 }
 
+template <class T>
+std::string BST<T>::levelorder() const {
+	std::stringstream aux;
+
+	aux << "[";
+	if (!empty()) {
+		root->LevelOrder(aux);
+	}
+	aux << "]";
+	return aux.str();
+}
 template <class T>
 std::string BST<T>::visit() const{
     std::stringstream aux;
@@ -306,8 +361,28 @@ std::string BST<T>::visit() const{
     aux << inorder();
     aux << "\n";
     aux << postorder();
-
+    aux << "\n";
+    //aux <<levelorder();
     return aux.str();
 }
-
+template <class T>
+int BST<T>::height(){
+    int h=root->max_depth();
+    return h;
+}
+template<class T>
+std::string BST<T>::ancestors(int target){
+    bool x;
+    stringstream aux;
+    aux << "[";
+	if (!empty()) {
+		x=root->ancestors(root,target,aux);
+	}
+	aux << "]";
+    string y=aux.str();
+    y.erase(y.end()-2);
+    stringstream aux1;
+    aux1<<y;
+	return aux1.str();
+}
 #endif
