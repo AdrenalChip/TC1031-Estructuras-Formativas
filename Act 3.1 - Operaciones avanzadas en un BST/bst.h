@@ -26,9 +26,11 @@ public:
 	void inorder(std::stringstream&) const;
 	void preorder(std::stringstream&) const;
     void postorder(std::stringstream&) const;
-    void levelorder(std::stringstream&) const;
+    void levelorder(Node*,int,std::stringstream&);
     int max_depth() ;
     bool ancestors(Node*,int,stringstream&);
+	void printLevelOrder(Node* ,stringstream &);
+	void printCurrentLevel(Node*, int,stringstream &);
 	friend class BST<T>;
 };
 
@@ -222,8 +224,25 @@ bool Node<T>::ancestors(Node* root,int target,stringstream &aux)
 }
 ///
 template <class T>
-void Node<T>::levelorder(std::stringstream &aux) const {
-     
+void Node<T>::levelorder(Node* root,int h,stringstream &aux)
+{
+    int i;
+    for (i = 1; i <= h; i++)
+        printCurrentLevel(root, i,aux);
+}
+
+/* Print nodes at a current level */
+template <class T>
+void Node<T>::printCurrentLevel(Node* root, int level,stringstream &aux)
+{
+    if (root == NULL)
+        return;
+    if (level == 1)
+        aux << root->value << " ";
+    else if (level > 1) {
+        printCurrentLevel(root->left, level - 1,aux);
+        printCurrentLevel(root->right, level - 1,aux);
+    }
 }
 ///
 template <class T>
@@ -345,13 +364,17 @@ std::string BST<T>::postorder() const {
 template <class T>
 std::string BST<T>::levelorder() const {
 	std::stringstream aux;
-
+	int h=root->max_depth();
 	aux << "[";
 	if (!empty()) {
-		root->LevelOrder(aux);
+		root->levelorder(root,h,aux);
 	}
 	aux << "]";
-	return aux.str();
+	string y=aux.str();
+    y.erase(y.end()-2);
+    stringstream aux1;
+    aux1<<y;
+	return aux1.str();
 }
 template <class T>
 std::string BST<T>::visit() const{
@@ -362,7 +385,7 @@ std::string BST<T>::visit() const{
     aux << "\n";
     aux << postorder();
     aux << "\n";
-    //aux <<levelorder();
+    aux <<levelorder();
     return aux.str();
 }
 template <class T>
@@ -379,10 +402,15 @@ std::string BST<T>::ancestors(int target){
 		x=root->ancestors(root,target,aux);
 	}
 	aux << "]";
-    string y=aux.str();
-    y.erase(y.end()-2);
-    stringstream aux1;
-    aux1<<y;
-	return aux1.str();
+	if (x){
+		string y=aux.str();
+    	y.erase(y.end()-2);
+    	stringstream aux1;
+    	aux1<<y;
+		return aux1.str();	
+	}else{
+		return aux.str();
+	}
 }
+
 #endif
