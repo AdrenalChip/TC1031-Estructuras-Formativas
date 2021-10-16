@@ -5,11 +5,13 @@
 #include <sstream>
 #include <iostream>
 
+using namespace std;
+
 template <class T>
 class Heap {
 private:
 	T *data;
-	unsigned int size;
+	unsigned int sizes;
 	unsigned int count;
 	unsigned int parent(unsigned int) const;
 	unsigned int left(unsigned int) const;
@@ -23,15 +25,17 @@ public:
 	bool empty() const;
 	bool full() const;
 	void push(T);
-	T remove();
+	T pop();
+	T top();
 	void clear();
 	std::string toString() const;
+	int size();
 };
 
 template <class T>
 Heap<T>::Heap(unsigned int sze)  {
-	size = sze;
-	data = new T[size];
+	sizes = sze;
+	data = new T[sizes];
 	if (data == 0) {
 		cout<<"OutOfMemory";
 	}
@@ -42,7 +46,7 @@ template <class T>
 Heap<T>::~Heap() {
 	delete [] data;
 	data = 0;
-	size = 0;
+	sizes = 0;
 	count = 0;
 }
 
@@ -53,7 +57,7 @@ bool Heap<T>::empty() const {
 }
 template <class T>
 bool Heap<T>::full() const {
-	return (count == size);
+	return (count == sizes);
 }
 template <class T>
 unsigned int Heap<T>::parent(unsigned int pos) const {
@@ -110,7 +114,7 @@ void Heap<T>::push(T val) {
 }
 
 template <class T>
-T Heap<T>::remove(){
+T Heap<T>::pop(){
 	if (empty()) {
 		cout << "NoSuchElement";
 	}
@@ -135,5 +139,25 @@ std::string Heap<T>::toString() const {
 	} aux << "]";
 	return aux.str();
 }
+
+template <class T>
+int Heap<T>::size(){
+	return count;
+
+}
+
+template <class T>
+T Heap<T>::top(){
+	if (empty()) {
+		cout << "NoSuchElement";
+	}
+	T aux = data[0];
+	int valor=data[0];
+	data[0] = data[--count];
+	heapify(0);
+
+	return valor;
+}
+
 
 #endif
