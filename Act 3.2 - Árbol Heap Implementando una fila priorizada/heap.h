@@ -22,7 +22,7 @@ public:
 	~Heap();
 	bool empty() const;
 	bool full() const;
-	void add(T);
+	void push(T);
 	T remove();
 	void clear();
 	std::string toString() const;
@@ -94,7 +94,7 @@ void Heap<T>::heapify(unsigned int pos) {
 }
 
 template <class T>
-void Heap<T>::add(T val) {
+void Heap<T>::push(T val) {
 	unsigned int pos;
 	if (full()) {
 		cout<< "Overflow";
