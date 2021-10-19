@@ -109,7 +109,7 @@ Node<T>* Node<T>::remove(T val) {
 		if (left != 0) {
 			if (left->value == val) {
 				old = left;
-				if(old->left != 0 && old->right != 0){ // dos hijos sucesor
+				if(old->left != 0 && old->right != 0){ 
 					succ = left->succesor();
 					if (succ != 0) {
 						succ->left = old->left;
@@ -121,14 +121,14 @@ Node<T>* Node<T>::remove(T val) {
 							succ->right->parent = succ;
 					}
 					left = succ;
-				} else if (old->right != 0){ // solo hijo der
+				} else if (old->right != 0){ 
 					old->right->parent = left->parent;
 					left = old->right;
 
-				} else if (old->left != 0){ // solo hijo izq
+				} else if (old->left != 0){ 
 					old->left->parent = left->parent;
 					left = old->left;
-				} else {  // hoja
+				} else {  
 					left = 0;
 				}
 				delete old;
@@ -141,7 +141,7 @@ Node<T>* Node<T>::remove(T val) {
 		if (right != 0) {
 			if (right->value == val) {
 				old = right;
-				if(old->left != 0 && old->right != 0){ // dos hijos sucesor
+				if(old->left != 0 && old->right != 0){ 
 					succ = right->succesor();
 					if (succ != 0) {
 						succ->left = old->left;
@@ -153,14 +153,14 @@ Node<T>* Node<T>::remove(T val) {
 							succ->right->parent = succ;
 					}
 					right = succ;
-				} else if (old->right != 0){ // solo hijo der
+				} else if (old->right != 0){ 
 					old->right->parent = right->parent;
 					right = old->right;
 
-				} else if (old->left != 0){ // solo hijo izq
+				} else if (old->left != 0){ 
 					old->left->parent = right->parent;
 					right = old->left;
-				} else {  // hoja
+				} else { 
 					right = 0;
 				}
 				delete old;
@@ -170,7 +170,7 @@ Node<T>* Node<T>::remove(T val) {
 			}
 		}
 	}
-	return this; // to avoid warning
+	return this; 
 }
 
 template <class T>
@@ -194,10 +194,8 @@ Node<T>* Node<T>::rot_right(Node<T>* x){
 	if(y->right)
 		y->right->parent = x;
 	y->right = x;
-	// enlace de y con el padre de x
 	y->parent = x->parent;
 	x->parent = y;
-	// hace enlace del padre de x a y
 	if(y->parent){
 		if(y->parent->left && y->parent->left->value == x->value)
 			y->parent->left = y;
@@ -214,10 +212,8 @@ Node<T>* Node<T>::rot_left(Node<T>* x){
 	if(y->left)
 		y->left->parent = x;
 	y->left = x;
-	// enlace de y con el padre de x
 	y->parent = x->parent;
 	x->parent = y;
-	// hace enlace del padre de x a y
 	if(y->parent){
 		if(y->parent->left && y->parent->left->value == x->value)
 			y->parent->left = y;
