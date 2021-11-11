@@ -15,12 +15,13 @@ class Sorts{
      void copyArray(vector<T>&,vector<T>&, int,int);
      void mergeArray(vector<T>&,vector<T>&,int,int,int);
      void mergeSplit(vector <T> &,vector<T>&,int,int);
+	 int binarySearch(vector <T>&,int,int,int);
     public:
      void ordenaSeleccion(vector<T> &);
      void ordenaBurbuja( vector<T>&);
      void ordenaMerge( vector<T>&);
-     int busqSecuencial (  vector<T>&,int);
-     int busqBinaria (  vector <int>,int);
+     int busqSecuencial (vector<T>&,int);
+     int busqBinaria (vector <T>&,int);
 };
 
 template <class T>
@@ -135,5 +136,26 @@ int Sorts<T>::busqSecuencial( vector<T> &v,int val) {
 	}
 	return low;
 
+}
+template <class T>
+int Sorts<T>::binarySearch(vector<T> &v,int i,int j,int x){
+	if (j>=1){
+		int mid=i+(j-1)/2;
+		if (v[mid]==x){
+			return mid;
+		}
+		if (v[mid]>x){
+			return binarySearch(v,i,mid-1,x);
+		}else{
+			return binarySearch(v,mid+1,j,x);
+		}
+	}
+	return -1;
+}
+template <class T>
+int Sorts<T>::busqBinaria ( vector<T> &v,int x){
+	int n=sizeof(v);
+	int result=binarySearch(v,0,n-1,x);
+	return result;
 }
 #endif
