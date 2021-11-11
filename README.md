@@ -19,4 +19,4 @@ Repositorio de ejemplo
  * Analisis de complejidad de un arbol de busqueda binario y sus funciones principales 
  
  ### Act 3.2 - Árbol Heap: Implementando una fila priorizada/
-* El programo tenía errores de compilación, se corrigió el error de compilación (caracteres no válidos y faltaban funciones por declarar) y el programa ya es compatible con el último main en el repositorio de prueba.
+* Analisis de complejidad de un arbol que hace uso del heapify o heapsort y las funciones para la generacion e eliminacion
