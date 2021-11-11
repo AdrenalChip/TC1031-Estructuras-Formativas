@@ -20,3 +20,7 @@ Repositorio de ejemplo
  
  ### Act 3.2 - Árbol Heap: Implementando una fila priorizada/
 * Analisis de complejidad de un arbol que hace uso del heapify o heapsort y las funciones para la generacion e eliminacion
+
+ ### Act 3.3 - Árbol Desplegado Implementando un Splay Tree/
+ * Analisis de complejidad de un arbol que usa el metodo de Splay para mantener un orden y nivelado todo
+ 
