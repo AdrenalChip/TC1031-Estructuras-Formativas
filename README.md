@@ -6,7 +6,7 @@ Repositorio de ejemplo
  ### Act 1.1 Funciones Iterativas, Recursivas y su análisis de Complejidad/
 * La funcion directa esta implimentada y se ejecuta de manera adecuado y cumple con los casos de prueba
 
-  ### Act 1.2 Algortimos de Busqueda y Ordenamiento/
+ ### Act 1.2 Algortimos de Busqueda y Ordenamiento/
 * Analisis de complejidad de toods los algoritmos y funcion actualizada de busqueda Binaria para cumplir con el caso
  
  ### Act 3.2 - Árbol Heap: Implementando una fila priorizada/
