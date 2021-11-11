@@ -5,7 +5,7 @@ Repositorio de ejemplo
 # Correcciones en actividades
  ### Act 1.1 Funciones Iterativas, Recursivas y su análisis de Complejidad/
 * La funcion directa esta implimentada y se ejecuta de manera adecuado y cumple con los casos de prueba
-* 
+
   ### Act 1.2 Algortimos de Busqueda y Ordenamiento/
 * Analisis de complejidad de toods los algoritmos y funcion actualizada de busqueda Binaria para cumplir con el caso
  
