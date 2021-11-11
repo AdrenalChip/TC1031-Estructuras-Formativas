@@ -12,5 +12,8 @@ Repositorio de ejemplo
  ### Act 2.1 - Implementación de una ADT de estructura de datos lineales/
  * Analisis de complejidad para las funciones de una lista, insertion, delete y update
  
+ ### Act 2.2 - implementar un ADT de una estructura de datos lineal (doble mente encadenada)/
+ * Analisis de complejidad de una lista doblemente encadenada y sus funciones
+ 
  ### Act 3.2 - Árbol Heap: Implementando una fila priorizada/
 * El programo tenía errores de compilación, se corrigió el error de compilación (caracteres no válidos y faltaban funciones por declarar) y el programa ya es compatible con el último main en el repositorio de prueba.
