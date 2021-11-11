@@ -86,10 +86,10 @@ int main(int argc, char* argv[]) {
 	cout << "\n" <<"8.- esperada "  << -1  << " programa " << sorts.busqSecuencial(prueba, 100) << "\n";
 	cout <<	(-1 == sorts.busqSecuencial(prueba, 100) ? "success\n" : "fail\n");
 
-	//cout << "\n" <<"9.- esperada "  << 4 << " programa " << sorts.busqBinaria(prueba, 333)  << "\n";
-	//cout <<	(4 == sorts.busqBinaria(prueba, 333) ? "success\n" : "fail\n");
+	cout << "\n" <<"9.- esperada "  << 4 << " programa " << sorts.busqBinaria(prueba, 333)  << "\n";
+	cout <<	(4 == sorts.busqBinaria(prueba, 333) ? "success\n" : "fail\n");
 
-	//cout << "\n" <<"10.- esperada "  << -1  << " programa " << sorts.busqBinaria(prueba, 197) << "\n";
-	//cout <<	(-1 == sorts.busqBinaria(prueba, 197) ? "success\n" : "fail\n");
+	cout << "\n" <<"10.- esperada "  << -1  << " programa " << sorts.busqBinaria(prueba, 197) << "\n";
+	cout <<	(-1 == sorts.busqBinaria(prueba, 197) ? "success\n" : "fail\n");
 	
 }
