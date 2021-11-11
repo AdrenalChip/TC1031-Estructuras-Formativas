@@ -1,3 +1,5 @@
+#single linked list es O(n)
+
 #insertion
 
 O(1) pues solo agrega valores de manera constante
