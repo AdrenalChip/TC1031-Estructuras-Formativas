@@ -27,8 +27,10 @@ int main(int argc, char* argv[]) {
     g.loadGraphMat("g.txt", 7, 7);
     star.loadGraphMat("star.txt", 5, 5);
 
-    //g.printAdjList()
-    g_ans ="vertex 0 : 1 4 vertex 1 : 0 2 3 vertex 2 : 1 vertex 3 : 1 6 vertex 4 : 0 5 vertex 5 : 4 vertex 6 : 3 ";
+    //cout<<g.printAdjList();
+    cout<<star.printAdjList();
+    star.DFS(0,3);
+/*    g_ans ="vertex 0 : 1 4 vertex 1 : 0 2 3 vertex 2 : 1 vertex 3 : 1 6 vertex 4 : 0 5 vertex 5 : 4 vertex 6 : 3 ";
     cout << "\n" <<"1.- esperada " << g_ans << "\n programa " << g.printAdjList() << "\n";
     cout <<	(!g_ans.compare(g.printAdjList()) ? "success\n" : "fail\n");
 
@@ -71,5 +73,5 @@ int main(int argc, char* argv[]) {
     star_ans_2 = "visited: 0 4 3 path: 0 3";
     cout << "\n" <<"8.- esperada 1 " << star_ans << "\n esperada 2 " << star_ans_2 <<"\n programa " << star.BFS(0,3) << "\n";
     cout <<	((!star_ans.compare(star.BFS(0,3)) || !star_ans_2.compare(star.BFS(0,3))) ? "success\n" : "fail\n");
-
+*/
 }
