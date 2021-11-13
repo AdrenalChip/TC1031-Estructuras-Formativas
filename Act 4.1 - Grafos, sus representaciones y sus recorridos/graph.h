@@ -12,7 +12,6 @@
 #include <stack>
 #include <list>
 #include <algorithm>
-#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -35,12 +34,12 @@ public:
 		string printAdjMat();
 		string printAdjMat_clean();
 		string printAdjList();
-		void DFS(int,int);
-		void DFH(int current,int goal,stack<int> &st,list<int> &visited,vector<vector<int>> &paths);
-		void BFS (int,int);
-		void BFH(int current,int goal,queue<int> &qu,list<int> &visited,vector<vector<int>> &paths);
-		void print_visited(list<int> q); //NECESITO QUE IMPRIMA
-		void print_path(vector<vector <int>> &path, int start, int goal);//guardar en auxstream;
+		string DFS(int,int);
+		string DFH(stringstream,int current,int goal,stack<int> &st,list<int> &visited,vector<vector<int>> &paths);
+		string BFS (stringstream,int,int);
+		string BFH(stringstream, int current,int goal,queue<int> &qu,list<int> &visited,vector<vector<int>> &paths);
+		string print_visited(stringstream,list<int> q); //NECESITO QUE IMPRIMA
+		string print_path(stringstream,vector<vector <int>> &path, int start, int goal);//guardar en auxstream;
 		bool contains(list<int>, int);
 		void sortAdjList();
 		void loadGraphList(string name,int,int);
@@ -50,7 +49,7 @@ public:
 void Graph::loadGraphList(string name,int a,int b){ ///EL ciclo se aplica mas veces
 	adjList=new vector<int>[a];
 	nodes=a;
-	for (int i=0;i< a-1;i++){
+	for (int i=0;i< 1;i++){
 		string line;
 		ifstream lee(name);   
 		int u,v;
@@ -120,7 +119,7 @@ string Graph::printAdjList(){
 	        aux << "vertex "
 	             << i << " :";
 	        for (int j = 0; j < adjList[i].size(); j ++){
-				aux << adjList[i][j] << " ";
+				aux << " " <<adjList[i][j];
 				}
 	        aux << " ";
     }
@@ -159,17 +158,19 @@ string Graph::printAdjMat_clean(){
 	return aux.str();
 }
 
-void Graph::DFS(int start,int goal){
+string Graph::DFS(int start,int goal){
 		stack <int> st;
 		list <int> visited;
 		vector <vector<int>> paths(nodes, vector<int>(1, -1));
 		st.push(start);
-		DFH(start, goal, st, visited, paths);
-		print_path(paths, start, goal);
+		stringstream aux;
+		aux << DFH(aux,start, goal, st, visited, paths);
+		aux << print_path(aux,paths, start, goal);
+		return aux.str();
 }
-void Graph::DFH(int current,int goal,stack<int> &st,list<int> &visited,vector<vector<int>> &paths){
+string Graph::DFH(stringstream aux,int current,int goal,stack<int> &st,list<int> &visited,vector<vector<int>> &paths){
 		if(current == goal){
-			print_visited(visited);
+			aux<<print_visited(aux,visited);
 		} else if(st.empty()){
 			cout << " node not found";
 		}	else {
@@ -181,23 +182,26 @@ void Graph::DFH(int current,int goal,stack<int> &st,list<int> &visited,vector<ve
 					st.push(adjList[current][i]);
 					paths[adjList[current][i]][0] = current;
 				}
-			DFH(current, goal, st, visited, paths);
+			DFH(aux,current, goal, st, visited, paths);
 		}
+	return aux.str();
 }
 
-void Graph::BFS(int start,int goal){
+string Graph::BFS(stringstream aux,int start,int goal){
+	    stringstream aux;
 	queue <int> qu;
 		list <int> visited;
     vector <vector<int>> paths(nodes, vector<int>(0));
 		qu.push(start);
- 		BFH(start, goal, qu, visited, paths);
-		print_path(paths, start, goal);
+ 		aux<<BFH(aux,start, goal, qu, visited, paths);
+		aux<< print_path(aux,paths, start, goal);
+		return aux.str();
 }
 
-void Graph::BFH(int current,int goal,queue<int> &qu,list<int> &visited,vector<vector<int>> &paths){
+string Graph::BFH(stringstream aux, int current,int goal,queue<int> &qu,list<int> &visited,vector<vector<int>> &paths){
 
 		if(current == goal){
-			print_visited(visited);
+			aux<<print_visited(aux,visited);
 		} else if(qu.empty()){
 			cout << " node not found";
 		}	else {
@@ -209,17 +213,19 @@ void Graph::BFH(int current,int goal,queue<int> &qu,list<int> &visited,vector<ve
 					qu.push(adjList[current][i]);
 					paths[adjList[current][i]].push_back(current);
 				}
-			BFH(current, goal, qu, visited, paths);
+			BFH(aux,current, goal, qu, visited, paths);
 		}
+		return aux.str();
 }
 
-void Graph::print_visited(list<int> q){
-	cout << "visited: ";
+string Graph::print_visited(stringstream aux,list<int> q){
+	aux << "visited: ";
 	while (!q.empty()){
-    cout << q.front() << " ";
+    aux << q.front() << " ";
     q.pop_front();
   }
-  cout << endl;
+  aux << " ";
+  return aux.str();
 }
 
 bool Graph::contains(list<int> ls, int node){
@@ -231,20 +237,21 @@ bool Graph::contains(list<int> ls, int node){
 			return false;
 }
 
-void Graph::print_path(vector<vector <int>> &path, int start, int goal){
+string Graph::print_path(stringstream aux,vector<vector <int>> &path, int start, int goal){
 	int node =  path[goal][0];
 	stack<int> reverse;
 	reverse.push(goal);
-	cout << "path: ";
+	aux << "path: ";
 	while (node != start) {
 		reverse.push(node);
     node = path[node][0];
   }
 	reverse.push(start);
 	while (!reverse.empty()) {
-		cout << reverse.top() << " ";
+		aux << reverse.top() << " ";
 		reverse.pop();
   }
-  cout << endl;
+  aux << endl;
+  return aux.str();
 }
 #endif /* Graph_H_ */
