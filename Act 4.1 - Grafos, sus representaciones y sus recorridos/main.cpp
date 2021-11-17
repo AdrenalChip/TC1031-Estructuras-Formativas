@@ -48,28 +48,24 @@ int main(int argc, char* argv[]) {
     cout << 	(!star_ans.compare(star.printAdjMat()) ? "success\n" : "fail\n");
 
     //g.DFS(0,3);
-/*    g_ans = "visited: 0 4 5 1 3 path: 0 1 3";
+    g_ans = "visited: 0 4 5 1 3 path: 0 1 3";
     g_ans_2 = "visited: 0 1 2 3 path: 0 1 3";
     cout << "\n" <<"5.- esperada 1 " << g_ans << "\n esperada 2 " << g_ans_2 <<"\n programa " << g.DFS(0,3) << "\n";
     cout <<	( (!g_ans.compare(g.DFS(0,3)) || !g_ans_2.compare(g.DFS(0,3))) ? "success\n" : "fail\n");
-
     //star.DFS(0,3);
     star_ans = "visited: 0 4 3 path: 0 4 3";
     star_ans_2 = "visited: 0 1 2 3 path: 0 1 2 3";
     cout << "\n" <<"6.- esperada 1 " << star_ans << "\n esperada 2 " << star_ans_2 <<"\n programa " << star.DFS(0,3) << "\n";
     cout <<	( (!star_ans.compare(star.DFS(0,3)) || !star_ans_2.compare(star.DFS(0,3)))? "success\n" : "fail\n");
-
-
     //g.BFS(0,3);
     g_ans = "visited: 0 1 4 2 3 path: 0 1 3";
     g_ans_2 = "visited: 0 4 1 5 3 path: 0 1 3";
     cout << "\n" <<"7.- esperada 1 " << g_ans << "\n esperada 2 " << g_ans_2 <<"\n programa " << g.BFS(0,3) << "\n";
     cout <<	(( !g_ans.compare(g.BFS(0,3)) || !g_ans_2.compare(g.BFS(0,3))) ? "success\n" : "fail\n");
-
     //star.BFS(0,3);
     star_ans = "visited: 0 1 2 3 path: 0 3";
     star_ans_2 = "visited: 0 4 3 path: 0 3";
     cout << "\n" <<"8.- esperada 1 " << star_ans << "\n esperada 2 " << star_ans_2 <<"\n programa " << star.BFS(0,3) << "\n";
     cout <<	((!star_ans.compare(star.BFS(0,3)) || !star_ans_2.compare(star.BFS(0,3))) ? "success\n" : "fail\n");
-*/
+
 }

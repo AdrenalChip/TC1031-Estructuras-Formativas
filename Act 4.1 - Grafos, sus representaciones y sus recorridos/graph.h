@@ -23,6 +23,7 @@ private:
 		int nodes;
     vector<int> *adjList;
 		int *adjMatrix;
+		stringstream aux1;
 		//vector<Type> *vect = new vector<Type>
 
 public:
@@ -35,11 +36,11 @@ public:
 		string printAdjMat_clean();
 		string printAdjList();
 		string DFS(int,int);
-		string DFH(stringstream,int current,int goal,stack<int> &st,list<int> &visited,vector<vector<int>> &paths);
-		string BFS (stringstream,int,int);
-		string BFH(stringstream, int current,int goal,queue<int> &qu,list<int> &visited,vector<vector<int>> &paths);
-		string print_visited(stringstream,list<int> q); //NECESITO QUE IMPRIMA
-		string print_path(stringstream,vector<vector <int>> &path, int start, int goal);//guardar en auxstream;
+		void DFH(int current,int goal,stack<int> &st,list<int> &visited,vector<vector<int>> &paths);
+		string BFS (int,int);
+		void BFH( int current,int goal,queue<int> &qu,list<int> &visited,vector<vector<int>> &paths);
+		void print_visited(list<int> q); //NECESITO QUE IMPRIMA
+		void print_path(vector<vector <int>> &path, int start, int goal);//guardar en auxstream;
 		bool contains(list<int>, int);
 		void sortAdjList();
 		void loadGraphList(string name,int,int);
@@ -163,14 +164,13 @@ string Graph::DFS(int start,int goal){
 		list <int> visited;
 		vector <vector<int>> paths(nodes, vector<int>(1, -1));
 		st.push(start);
-		stringstream aux;
-		aux << DFH(aux,start, goal, st, visited, paths);
-		aux << print_path(aux,paths, start, goal);
-		return aux.str();
+		DFH(start, goal, st, visited, paths);
+		print_path(paths, start, goal);
+		return aux1.str();
 }
-string Graph::DFH(stringstream aux,int current,int goal,stack<int> &st,list<int> &visited,vector<vector<int>> &paths){
+void Graph::DFH(int current,int goal,stack<int> &st,list<int> &visited,vector<vector<int>> &paths){
 		if(current == goal){
-			aux<<print_visited(aux,visited);
+			print_visited(visited);
 		} else if(st.empty()){
 			cout << " node not found";
 		}	else {
@@ -182,26 +182,24 @@ string Graph::DFH(stringstream aux,int current,int goal,stack<int> &st,list<int>
 					st.push(adjList[current][i]);
 					paths[adjList[current][i]][0] = current;
 				}
-			DFH(aux,current, goal, st, visited, paths);
+			DFH(current, goal, st, visited, paths);
 		}
-	return aux.str();
 }
 
-string Graph::BFS(stringstream aux,int start,int goal){
-	    stringstream aux;
+string Graph::BFS(int start,int goal){
 	queue <int> qu;
 		list <int> visited;
     vector <vector<int>> paths(nodes, vector<int>(0));
 		qu.push(start);
- 		aux<<BFH(aux,start, goal, qu, visited, paths);
-		aux<< print_path(aux,paths, start, goal);
-		return aux.str();
+ 		BFH(start, goal, qu, visited, paths);
+		print_path(paths, start, goal);
+		return aux1.str();
 }
 
-string Graph::BFH(stringstream aux, int current,int goal,queue<int> &qu,list<int> &visited,vector<vector<int>> &paths){
+void Graph::BFH(int current,int goal,queue<int> &qu,list<int> &visited,vector<vector<int>> &paths){
 
 		if(current == goal){
-			aux<<print_visited(aux,visited);
+			print_visited(visited);
 		} else if(qu.empty()){
 			cout << " node not found";
 		}	else {
@@ -213,19 +211,18 @@ string Graph::BFH(stringstream aux, int current,int goal,queue<int> &qu,list<int
 					qu.push(adjList[current][i]);
 					paths[adjList[current][i]].push_back(current);
 				}
-			BFH(aux,current, goal, qu, visited, paths);
+			BFH(current, goal, qu, visited, paths);
 		}
-		return aux.str();
 }
 
-string Graph::print_visited(stringstream aux,list<int> q){
-	aux << "visited: ";
+void Graph::print_visited(list<int> q){
+	aux1 << "visited: ";
 	while (!q.empty()){
-    aux << q.front() << " ";
+    aux1 << q.front() << " ";
     q.pop_front();
   }
-  aux << " ";
-  return aux.str();
+  aux1 << " ";
+
 }
 
 bool Graph::contains(list<int> ls, int node){
@@ -237,21 +234,20 @@ bool Graph::contains(list<int> ls, int node){
 			return false;
 }
 
-string Graph::print_path(stringstream aux,vector<vector <int>> &path, int start, int goal){
+void Graph::print_path(vector<vector <int>> &path, int start, int goal){
 	int node =  path[goal][0];
 	stack<int> reverse;
 	reverse.push(goal);
-	aux << "path: ";
+	aux1 << "path: ";
 	while (node != start) {
 		reverse.push(node);
     node = path[node][0];
   }
 	reverse.push(start);
 	while (!reverse.empty()) {
-		aux << reverse.top() << " ";
+		aux1 << reverse.top() << " ";
 		reverse.pop();
   }
-  aux << endl;
-  return aux.str();
+  aux1 << endl;
 }
 #endif /* Graph_H_ */
