@@ -10,7 +10,7 @@
 #include <cstring>
 #include <string>
 #include "quadratic.h"
-#include "chain.h"
+// #include "chain.h"
 
 
 using namespace std;
