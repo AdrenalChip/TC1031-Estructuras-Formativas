@@ -221,7 +221,7 @@ void Graph::print_visited(list<int> q){
     aux1 << q.front() << " ";
     q.pop_front();
   }
-  aux1 << " ";
+  aux1 << "";
 
 }
 
