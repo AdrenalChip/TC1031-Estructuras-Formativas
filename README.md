@@ -20,6 +20,7 @@ Repositorio de ejemplo
  * Analisis de complejidad de una lista doblemente encadenada y sus funciones
  
  ### Act 3.1 - Operaciones avanzadas en un BST/
+ * Cumple con los casos de prueba adecuadamente
  * Analisis de complejidad de un arbol de busqueda binario y sus funciones principales 
  
  ### Act 3.2 - Árbol Heap: Implementando una fila priorizada/
