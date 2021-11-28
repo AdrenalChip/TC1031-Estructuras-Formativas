@@ -32,4 +32,4 @@ Repositorio de ejemplo
  * Analisis de complejidad de un arbol que usa el metodo de Splay para mantener un orden y nivelado todo
  
  ### Act 4.1 - Grafos, sus representaciones y sus recorridos/
- * El programa realiza adecuadamente el DFS e imprime solo una de las posibilidades de manera correcta
+ * Tanto en las instrucciones como en la revision se menciona que con obtener una de las dos posibilidades el caso de uso deberia de ser validado, la funcion DFS se ejecuta adecuadamente y regresa correctamente una de las dos posibilidades, con espacios y sintaxis correspondiente a lo esperado.
