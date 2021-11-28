@@ -12,6 +12,7 @@ Repositorio de ejemplo
 * Analisis de complejidad de toods los algoritmos y funcion actualizada de busqueda Binaria para cumplir con el caso
  
  ### Act 2.1 - Implementación de una ADT de estructura de datos lineales/
+ * Cumple con los casos de prueba menos Deleteat()
  * Analisis de complejidad para las funciones de una lista, insertion, delete y update
  
  ### Act 2.2 - implementar un ADT de una estructura de datos lineal (doble mente encadenada)/
