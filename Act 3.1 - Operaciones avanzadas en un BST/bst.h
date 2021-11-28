@@ -68,6 +68,7 @@ bool Node<T>::find(T val) {
 	} else if (val > value) {
 		return (right != 0 && right->find(val));
 	}
+	return false;
 }
 
 template <class T>
