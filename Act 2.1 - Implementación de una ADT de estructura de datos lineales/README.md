@@ -2,7 +2,7 @@
 
 #insertion
 
-O(1) pues solo agrega valores de manera constante
+O(1) pues solo agrega valores de manera constante al final de la lista
 
 #update
 
