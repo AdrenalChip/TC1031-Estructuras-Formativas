@@ -31,3 +31,5 @@ Repositorio de ejemplo
  * Cumple con todos los casos de prueba establecidos en el main
  * Analisis de complejidad de un arbol que usa el metodo de Splay para mantener un orden y nivelado todo
  
+ ### Act 4.1 - Grafos, sus representaciones y sus recorridos/
+ * El programa realiza adecuadamente el DFS e imprime solo una de las posibilidades de manera correcta
