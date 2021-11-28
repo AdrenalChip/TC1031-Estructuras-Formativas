@@ -248,6 +248,6 @@ void Graph::print_path(vector<vector <int>> &path, int start, int goal){
 		aux1 << reverse.top() << " ";
 		reverse.pop();
   }
-  aux1 << endl;
+  aux1.seekp(-1,ios_base::end);
 }
 #endif /* Graph_H_ */
