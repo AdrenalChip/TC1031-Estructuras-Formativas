@@ -7,6 +7,7 @@ Repositorio de ejemplo
 * La funcion directa esta implimentada y se ejecuta de manera adecuado y cumple con los casos de prueba
 
  ### Act 1.2 Algortimos de Busqueda y Ordenamiento/
+* Las funciones cumplen adecuadamente con los casos de prueba del main. 
 * Analisis de complejidad de toods los algoritmos y funcion actualizada de busqueda Binaria para cumplir con el caso
  
  ### Act 2.1 - Implementación de una ADT de estructura de datos lineales/
