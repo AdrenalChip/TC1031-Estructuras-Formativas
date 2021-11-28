@@ -169,14 +169,14 @@ int List<T>::deleteAt(int pos){
 	T val;
 	p = head;
 	int contador=0;
-	while (contador !=size){
-		head = p->next;
+	while (contador <size){
 		if (contador==pos){
 			val=p->value;
 			delete p;
 			size--;
 		}
 		contador=contador+1;
+		head= p->next;
 	}
 	return val;
 
