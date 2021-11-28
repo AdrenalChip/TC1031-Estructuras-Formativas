@@ -256,23 +256,60 @@ void DList<T>::update(int pos,int val){
 	}
 }
 
+template <class T>
+T DList<T>::removeFirst() {
+	T val;
+	DLink<T> *p;
+
+	if (empty()) {
+		cout<<"NoSuchElement";
+	}
+
+	p = head;
+	val = p->value;
+
+	if (head == tail) {
+		head = 0;
+		tail = 0;
+	} else {
+		head = p->next;
+		p->next->previous = 0;
+	}
+	delete p;
+	size--;
+
+	return val;
+}
 
 template <class T>
-int DList<T>::deleteAt(int pos){
-	DLink <T> *p;
+int DList<T>::deleteAt(int index){
+	int pos;
 	T val;
-	p = head;
-	int contador=0;
-	while (contador !=size){
-		head = p->next;
-		if (contador==pos){
-			val=p->value;
-			delete p;
-			size--;
-		}
-		contador=contador+1;
-	}
-	return val;
+	DLink<T> *p;
 
+	if (index < 0 || index >= size) {
+		cout<<"IndexOutOfBounds";
+	}
+	if (index == 0) {
+		return removeFirst();
+	}
+	p = head;
+	pos = 0;
+	while (pos != index) {
+		p = p->next;
+		pos++;
+	}
+
+	val = p->value;
+	p->previous->next = p->next;
+	if (p->next != 0) {
+		p->next->previous = p->previous;
+	}
+	size--;
+
+	delete p;
+
+	return val;
 }
+
 #endif
