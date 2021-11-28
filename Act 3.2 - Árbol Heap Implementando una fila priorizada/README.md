@@ -12,3 +12,6 @@ O (n) para la creacion del arbol mediante la navegacion del numero de nodos y su
 #pop
 
 O (n) navegar por el numero de nodos y sus valores 
+
+#top
+O(1) pues toma el valor que esta al inicio de la fila priorizada y no realizada ninguna clase de busqueda, siempre es el primero
