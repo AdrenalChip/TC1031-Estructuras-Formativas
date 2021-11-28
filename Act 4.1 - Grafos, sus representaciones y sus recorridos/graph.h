@@ -24,6 +24,7 @@ private:
     vector<int> *adjList;
 		int *adjMatrix;
 		stringstream aux1;
+		stringstream aux2;
 		//vector<Type> *vect = new vector<Type>
 
 public:
@@ -40,7 +41,9 @@ public:
 		string BFS (int,int);
 		void BFH( int current,int goal,queue<int> &qu,list<int> &visited,vector<vector<int>> &paths);
 		void print_visited(list<int> q); //NECESITO QUE IMPRIMA
+		void print_visited2(list<int> q);
 		void print_path(vector<vector <int>> &path, int start, int goal);//guardar en auxstream;
+		void print_path2(vector<vector <int>> &path, int start, int goal);
 		bool contains(list<int>, int);
 		void sortAdjList();
 		void loadGraphList(string name,int,int);
@@ -192,14 +195,14 @@ string Graph::BFS(int start,int goal){
     vector <vector<int>> paths(nodes, vector<int>(0));
 		qu.push(start);
  		BFH(start, goal, qu, visited, paths);
-		print_path(paths, start, goal);
-		return aux1.str();
+		print_path2(paths, start, goal);
+		return aux2.str();
 }
 
 void Graph::BFH(int current,int goal,queue<int> &qu,list<int> &visited,vector<vector<int>> &paths){
 
 		if(current == goal){
-			print_visited(visited);
+			print_visited2(visited);
 		} else if(qu.empty()){
 			cout << " node not found";
 		}	else {
@@ -221,10 +224,15 @@ void Graph::print_visited(list<int> q){
     aux1 << q.front() << " ";
     q.pop_front();
   }
-  aux1 << "";
-
 }
 
+void Graph::print_visited2(list<int> q){
+	aux2 << "visited: ";
+	while (!q.empty()){
+    aux2 << q.front() << " ";
+    q.pop_front();
+  }
+}
 bool Graph::contains(list<int> ls, int node){
 		list<int>::iterator it;
 		it = find(ls.begin(), ls.end(), node);
@@ -249,5 +257,25 @@ void Graph::print_path(vector<vector <int>> &path, int start, int goal){
 		reverse.pop();
   }
   aux1.seekp(-1,ios_base::end);
+  aux1<<"\n";
+}
+
+
+void Graph::print_path2(vector<vector <int>> &path, int start, int goal){
+	int node =  path[goal][0];
+	stack<int> reverse;
+	reverse.push(goal);
+	aux2 << "path: ";
+	while (node != start) {
+		reverse.push(node);
+    node = path[node][0];
+  }
+	reverse.push(start);
+	while (!reverse.empty()) {
+		aux2 << reverse.top() << " ";
+		reverse.pop();
+  }
+  aux2.seekp(-1,ios_base::end);
+  aux2<<"\n";
 }
 #endif /* Graph_H_ */
