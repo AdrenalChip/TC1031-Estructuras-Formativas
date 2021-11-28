@@ -16,6 +16,7 @@ Repositorio de ejemplo
  * Analisis de complejidad para las funciones de una lista, insertion, delete y update
  
  ### Act 2.2 - implementar un ADT de una estructura de datos lineal (doble mente encadenada)/
+ * Cumple con todos los casos de prueba adecuadamente 
  * Analisis de complejidad de una lista doblemente encadenada y sus funciones
  
  ### Act 3.1 - Operaciones avanzadas en un BST/
