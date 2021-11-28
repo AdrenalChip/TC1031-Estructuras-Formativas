@@ -24,6 +24,7 @@ Repositorio de ejemplo
  * Analisis de complejidad de un arbol de busqueda binario y sus funciones principales 
  
  ### Act 3.2 - Árbol Heap: Implementando una fila priorizada/
+* Cumple con todos los casos menos con la funcion top
 * Analisis de complejidad de un arbol que hace uso del heapify o heapsort y las funciones para la generacion e eliminacion
 
  ### Act 3.3 - Árbol Desplegado Implementando un Splay Tree/
