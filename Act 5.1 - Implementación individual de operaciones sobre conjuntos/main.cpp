@@ -10,8 +10,6 @@
 #include <cstring>
 #include <string>
 #include "quadratic.h"
-// #include "chain.h"
-
 
 using namespace std;
 
@@ -68,6 +66,7 @@ int main(int argc, char* argv[]) {
 			cout << quad_hash.toString().c_str() << endl ;
 
 			ans = 12;
+
 			cout << " 3 " <<	( ans == quad_hash.get("casa") ? "success\n" : "fail\n");
 
 			cout << endl <<  ans << endl ;
