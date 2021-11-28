@@ -1,6 +1,6 @@
 
-#ifndef funciones.h
-#define funciones.h
+#ifndef funciones_h
+#define funciones_h
 
 #include <iostream>
 
