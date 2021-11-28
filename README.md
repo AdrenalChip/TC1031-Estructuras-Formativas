@@ -28,5 +28,6 @@ Repositorio de ejemplo
 * Analisis de complejidad de un arbol que hace uso del heapify y sus funciones correspondientes
 
  ### Act 3.3 - Árbol Desplegado Implementando un Splay Tree/
+ * Cumple con todos los casos de prueba establecidos en el main
  * Analisis de complejidad de un arbol que usa el metodo de Splay para mantener un orden y nivelado todo
  
