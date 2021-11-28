@@ -33,4 +33,5 @@ Repositorio de ejemplo
  
  ### Act 4.1 - Grafos, sus representaciones y sus recorridos/
  * Tanto en las instrucciones como en la revision se menciona que con obtener una de las dos posibilidades el caso de uso deberia de ser validado, la funcion DFS se ejecuta adecuadamente y regresa correctamente una de las dos posibilidades, con espacios y sintaxis correspondiente a lo esperado. Sin ambargo sigue marcando fail, pero esta correctamente el DFS
+ 
  ![Screenshots](Screenshots.JPG)
