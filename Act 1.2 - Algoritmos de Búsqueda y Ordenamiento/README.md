@@ -1,19 +1,35 @@
+# Analisis de Complejidad
+
+#Selection Sort
+
+Dos ciclos anidados
+
+O(n^2) es la compledidad
+
+#Bubble Sort
+
+Dos ciclos anidados
+
+O(n^2) es la complejidad.
+
+#Merge Sort
+
+Splits recursivos y recorridos lineales.
+
+(n*log 2)
+
+#Busqueda secuencial
+
+Recorrido lineal
+
+O(n)
+
+#Busqueda binaria.
+
+Split recursivo
+
+La complejidad como log 2, pues se parte a la mitad.
+
 #ordena Seleccion
 
 O (n^2) por incluir dos ciclos, uno aninado dentro de otro.
-
-#ordena Burbuja
-
-O(n^2) pues igual que el anterior funciona con ciclos for anidados.
-
-#ordena Merge
-
-O(n(log(n)) es asi pues divide los valores y al juntarlos los ordena
-
-#busqueda Secuencial
-
-O(n) es asi pues va comparando valor con valor, entonces depende de la cantidad de valores 
-
-#busqueda Binaria
-
-O (log n) pues se van reduciendo cada vez mas el numero de datos a analizar y comparar
