@@ -40,3 +40,5 @@ Repositorio de ejemplo
  
  ![Screenshots2](Screenshots2.JPG)
  
+### Act 5.1 - Implementación individual de operaciones sobre conjuntos/
+* Adecuadamente ejecuta la funcion put
