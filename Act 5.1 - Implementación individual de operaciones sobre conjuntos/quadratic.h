@@ -4,144 +4,134 @@
 #include <string>
 #include <sstream>
 
-using namespace std;
-
 template <class Key, class Value>
 class Quadratic {
 private:
 	unsigned int (*func) (const Key);
 	unsigned int size;
 	unsigned int count;
-
+	
 	Key *keys;
 	Key initialValue;
 	Value *values;
-
+	
 	long indexOf(const Key) const;
-
+	
 public:
 	Quadratic(unsigned int, Key, unsigned int (*f) (const Key));
 	~Quadratic();
 	bool full() const;
 	bool put(Key, Value);
 	bool contains(const Key) const;
-	Value get(const Key);
+	Value get(const Key) ;
 	void clear();
 	std::string toString() const;
 };
 
 template <class Key, class Value>
 Quadratic<Key, Value>::Quadratic(unsigned int sze, Key init, unsigned int (*f) (const Key)){
-	size = sze;
-	keys = new Key[size];
-	if (keys == 0) {
-		cout<<"OutOfMemory";
+	size=sze;
+    initialValue=init;
+    func=f;
+	count=0;
+	keys=new Key[size];
+	values=new Value[size];
+	for(int i=0;i<size;i++){
+		keys[i]=initialValue;
+		values[i]=0;
 	}
-	initialValue = init;
-	for (unsigned int i = 0; i < size; i++) {
-		keys[i] = init;
-	}
-	values = new Value[size];
-	if (values == 0) {
-		cout<< "OutOfMemory";
-	}
-	for (int i = 0; i  < sze; i++){
-        values[i] = 0;
-    }
-
-	func = f;
-	count = 0;
 }
 
 template <class Key, class Value>
 Quadratic<Key, Value>::~Quadratic() {
+	size=0;
+	initialValue="";
+	func=0;
+	count=0;
 	delete [] keys;
-	keys = 0;
 	delete [] values;
-	values = 0;
-	size = 0;
-	func = 0;
-	count = 0;
+	keys=0;
+	values=0;
 }
 
 template <class Key, class Value>
 bool Quadratic<Key, Value>::full() const {
-	return (count > size);
+	if(count>=size){
+		return true;
+	}
+	return false;
 }
 
 template <class Key, class Value>
 long Quadratic<Key, Value>::indexOf(const Key k) const {
-	unsigned int i, start;
-
-	start = i = func(k) % size;
-	do {
-		if (keys[i] == k) {
-			return i;
+	long ind=func(k)%size;
+	long start=ind;
+	for(int j=0;j<size;j++){
+		if(keys[ind]==k){
+			return ind;
 		}
-		i = (i + 1) % size;
-	} while (start != i);
-	return -1;
+		ind=(start+j*j)%size;
+	}
+
+
+	return -1;// Si no se encuentra la llave
 }
 
 template <class Key, class Value>
-bool Quadratic<Key, Value>::put(Key k, Value v){
-	unsigned int i, start;
-	long pos;
-
+bool Quadratic<Key, Value>::put(Key k, Value v) {
 	if (full()) {
-		cout<< "Overflow";
+		return false;
 	}
-
+	long pos=func(k);
 	pos = indexOf(k);
 	if (pos != -1) {
 		values[pos] = v;
 		return true;
 	}
-
-	start = i = func(k) % size;
-	do {
-		if (keys[i] == initialValue) {
-			keys[i] = k;
-			values[i] = v;
-			count++;
+	unsigned int start=func(k)%size;
+	unsigned int i=func(k)%size;
+	for(int j=0;j<size;j++){
+		if(keys[i]==initialValue){
+			values[i]=v;
+			keys[i]=k;
 			return true;
 		}
-		i = (i + 1) % size;
-	} while (start != i);
+		i=(start+j*j)%size;
+	}
 	return false;
 }
 
 template <class Key, class Value>
 bool Quadratic<Key, Value>::contains(const Key k) const {
-	long pos;
-
-	pos = indexOf(k);
-	return (pos != -1);
+	if(indexOf(k)==-1){
+		return false;
+	}
+	return true;
 }
 
 template <class Key, class Value>
-Value Quadratic<Key, Value>::get(const Key k){
-	unsigned int i, start;
-	long pos;
-
-	pos = indexOf(k);
-	if (pos != -1) {
-		return values[pos];
+Value Quadratic<Key, Value>::get(const Key k) {
+	if(contains(k)){
+		long r=indexOf(k);
+		return values[r];
 	}
-	cout<< "NoSuchElement";
+	return -1;//Valor no encontrado
 }
 
 template <class Key, class Value>
 void Quadratic<Key, Value>::clear() {
-	count = 0;
-	for (unsigned int i = 0; i < size; i++) {
-		keys[i] = initialValue;
+	for (int i=0;i<size;i++){
+		values[i]=0;
+		keys[i]=initialValue;
 	}
+	count=0;
 }
 
+
+//impresion clase quadratic
 template <class Key, class Value>
-std::string Quadratic <Key, Value>::toString() const {
-    stringstream aux;
+std::string Quadratic<Key, Value>::toString() const {
+	std::stringstream aux;
 	for (int i = 0; i < size; i++){
 			if (keys[i] != initialValue){
 				aux << "(" << i << " ";
@@ -150,4 +140,7 @@ std::string Quadratic <Key, Value>::toString() const {
 	}
 	return aux.str();
 }
-#endif
+
+
+#endif /* HASH_H_ */
+	
