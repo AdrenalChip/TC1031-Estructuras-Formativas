@@ -1,35 +1,43 @@
-#Binary Search Tree
+# Analisis de Complejidad
 
-En el peor caso es un O(n)
+#visit
 
-#add
+1. Preorder 
 
-O (log n) por la forma en que tiene que ser ordenado, un nodo puede tener dos hijos
+2. Inorder
 
-#inorder
+3. Postorder
 
-O (log n) por que tiene que recorrer dos posibles ordenes por nodo
+Estas primeras tres pasan por cada uno de los nodos, por lo que es O(n)
 
-#preorder
+4. Level by level
 
-O (log n) por que tiene que recorrer dos posibles ordenes por nodo
+Puede recuperar todos los valores en tiempo O(n).
 
-#postorder
+Posteriormente se usa un ciclo de complejidad O(h) donde n>h lo que se podría tomar como otro O(n).
 
-O (log n) por que tiene que recorrer dos posibles ordenes por nodo
+Es decir, la catalogamos como 2(n)
 
-#levelorder
-
-O (log n) por que tiene que recorrer dos posibles ordenes por nodo
+La complejidad de visit queda como O(5n) o O(kn)
 
 #height
 
-O(n) dependiendo solo del nodo mas lejano a la raiz
+Obtiene la altura del BST
 
-#ancestors 
+Necesita explorar todo por lo que es O(n)
 
-O(n) hace un retroceso apartir de un hijo recorriendo a los nodos superiores
+
+#ancestors
+
+Obtiene los ancestros de un dato
+
+
+Ancestors tiene una validación con el find, de complejidad O(logn) luego el peor de los casos de ancestors tambien es log(n)
+
+Por lo tanto es 2(log n).
 
 #whatlevelamI
 
-O(n) depende de cantidad de ramas que se encuentran 
+Obtiene un entero que indica el nivel en que se encuentra un dato, o -1 en caso de que no se encuentre en el BST
+
+Analogo que el caso anterior es O(2 log n) o O(2n) si está como linked list.
