@@ -1,13 +1,17 @@
-#single linked list es O(n)
+# Analisis de Complejidad
 
 #insertion
 
-O(1) pues solo agrega valores de manera constante al final de la lista
+O(n) siempre recorre hasta el ultimo link para agregarlo.
+
+#search
+
+O(n) En el peor de los casos no está y habrá recorrido los n elementos de la lista.
 
 #update
 
-O(n) a parte de solo agregar tambien afecta y depende del numero de nodos que esten presentes 
+O(n) En el peor de los casos actualiza el valor del ultimo elemento. Por lo que debe hacer n pasos.
 
-#deleteAt 
+#deleteAt
 
-O(n) pues va a funcionar dependiendo de la cantidad de nodos que tenga la lista 
+O(n) En el peor de los casos borra el ultimo elemento y tendrá que recorrerla entera.
