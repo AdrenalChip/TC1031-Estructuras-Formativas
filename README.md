@@ -30,13 +30,8 @@
  * Analisis de complejidad de un arbol que usa el metodo de Splay para mantener un orden y nivelado todo
  
  ### Act 4.1 - Grafos, sus representaciones y sus recorridos/
- * Tanto en las instrucciones como en la revision se menciona que con obtener una de las dos posibilidades el caso de uso deberia de ser validado, la funcion DFS se ejecuta adecuadamente y regresa correctamente una de las dos posibilidades, con espacios y sintaxis correspondiente a lo esperado. Sin embargo sigue marcando fail, pero esta correctamente el DFS
- 
- ![Screenshots](Screenshots.JPG)
- 
- * Lo mismo sucede con el BSF, en donde se imprime adecuadamente una de las dos opciones con una sintaxis correcta y devolviendo los valores que debe devolver, y aun asi marca como fail aunque la opcion mostrada si era una de las esperadas
- 
- ![Screenshots2](Screenshots2.JPG)
+ * BFS ya cumple con su caso de uso
+ * DFS ya cumple con su caso de uso
  
 ### Act 5.1 - Implementación individual de operaciones sobre conjuntos/
 * Adecuadamente ejecuta la funcion put
