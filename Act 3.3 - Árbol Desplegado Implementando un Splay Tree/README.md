@@ -1,5 +1,27 @@
+# Analisis de Complejidad
+
 #Splay tree
 
-Todas las funciones de un Splay tree son de orden de complejidad
-O (log n) pues cada que se modifica, por ejemplo al buscar un nodo, el arbol
-se restructura para mantener nivelado todo, buscar que este parejo, y por ello los analisis son mucho mas efectivos
+#add
+
+Agregue un dato al Splay Tree.
+
+O(logn)
+
+#remove
+
+Elimina el dato del Splay Tree.
+
+O(logn)
+
+#find
+
+Regresa un valor boleano que representa si el dato qus se desea encontrar existe o no.
+
+O(logn)
+
+#size
+
+Descripción: Regresa la cantidad de datos que tiene el Splay Tree.
+
+O(1) P
