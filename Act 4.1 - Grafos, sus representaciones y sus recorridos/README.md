@@ -1,19 +1,17 @@
-#Grafos
+# Analisis de Complejidad
 
-Grafos son conjuntos de V, conjuntos vacios llamados vertices, y E, pares no ordenados que son llamados aristas o arcos
+#loadGraphList
 
-#ADJECENCY MATRIX
+Carga los arcos del grafo y los almacene en una lista de adjacencia
 
-Consume mucho mas espacio por lo que es O(n^2)
-
-#ADJECENCY LIST
-
-En el peor de los casos es O(n^2)
+Tiene complejidad O(n), pues depende de cuantos edges tengamos
 
 #DFS
 
-O (V+E) donde V seria el numero de vertices y E el numero de edges/conexiones 
+Imprima el Recorrido de DFS
+
+En el peor de los casos es O(n) cuando tiene que recorrer todo el grafo y es el último elemento.
 
 #BFS
 
-O (V+E) donde V seria el numero de vertices y E el numero de edges/conexiones 
+El peor de los casos es  O(n) cuando tiene que pasar por todos los nodos antes.
