@@ -1,7 +1,5 @@
 # TC1031_Estructuras_Formativas
 
-Repositorio de ejemplo
-
 # Correcciones en actividades
  ### Act 1.1 Funciones Iterativas, Recursivas y su análisis de Complejidad/
 * La funcion directa esta implimentada y se ejecuta de manera adecuado y cumple con los casos de prueba
