@@ -1,17 +1,31 @@
-#Árbol Heap
-
-O (n (log (n))) pues toma el O(n) para la creacion del arbol y el O (log n) para acomodarlo y accesar a la informacion segun el heapify
-
-#heapify
-
-O (log n) el heapify cambia por cada nodo
+# Analisis de Complejidad
 
 #push
-O (n) para la creacion del arbol mediante la navegacion del numero de nodos y sus valores 
+
+Agregue un dato a la fila
+
+Para agregar el valor es O(1).Por la estructura del heap es O(logn)
 
 #pop
 
-O (n) navegar por el numero de nodos y sus valores 
+Saca de la fila priorizada el dato que tiene mayor prioridad
+
+La forma recursiva solo hace un cambio y un heapify de una rama a lo mas es O(log n)
 
 #top
-O(1) pues toma el valor que esta al inicio de la fila priorizada y no realizada ninguna clase de busqueda, siempre es el primero
+
+Regresa el valor del dato que esta con mayor prioridad
+
+Para agregar el valor es O(1)
+
+#empty
+
+Regresa un valor boleando diciendo si la fila priorizada esta vacía o tiene datos.
+
+O(1)
+
+#size
+
+Regresa la cantidad de datos que tiene la fila priorizada.
+
+O(1)
