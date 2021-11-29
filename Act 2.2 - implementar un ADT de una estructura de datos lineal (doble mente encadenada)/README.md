@@ -1,13 +1,18 @@
-#double linked list es O(n)
-
-#search
-O(n) va cambiando conforme la cantidad de nodos
+# Analisis de Complejidad
 
 #insertion
-O(1) es constante por que agrega al final 
+
+O(n) siempre recorre hasta el ultimo link para agregarlo.
+
+#search
+
+O(n) En el peor de los casos no está y habrá recorrido los n elementos de la lista.
 
 #update
-O(n) depende de la cantidad de nodos y requiere un espacio extra
 
-#delete
-O(n) depende de la cantidad de nodos y requiere modificar nodos
+O(n/2) Como sabemos el indice podemos recorrerlo desde el head o de la cola por lo que el peor de los casos es la mitad hay n/2 pasos.
+
+
+#deleteAt
+
+O(n/2) como en update recorremos hasta la mitad 
